@@ -34,11 +34,13 @@ biscuit # Static routing, static files and return render_template
 """
 aronLim # Static routing, static files and return render_template
 
+"""
+
 @app.route('/UltimateAron')									
 def routeStaticUltimateAron():								
 	return render_template ('UltimateAron.html')			
 
-"""
+
 
 # Dynamic routing
 @app.route('/TheEngineer/<int:visitor>')
@@ -60,12 +62,14 @@ biscuit # Dynamic routing
 """
 aronLim # Dynamic routing
 
+"""
+
 @app.route('/UltimateAron/<int:x>')
 def routeDynamicUltimateAron(x):							
 	powerToPower = math.pow(x,x)							
 	return render_template ('DynamicUltimateAron.html',awesomeness = powerToPower)	
 
-"""
+
 
 
 # HTTP methods
@@ -94,6 +98,7 @@ biscuit # Dynamic routing
 """
 aronLim # Dynamic routing
 
+"""
 @app.route('/UltimateAron/HTTPmethods',methods=['GET','POST'])
 def httpMethodsUltimateAron():
 	if request.method == 'GET':								#if client(browser) is requesting for GET method, then execute the function.
@@ -103,7 +108,7 @@ def httpMethodsUltimateAron():
 		varUltimateAron = 2*3
 		return render_template('HTTPmethodsUltimateAron.html',varUltimateAron = varUltimateAron)
 
-"""
+
 
 # RequestData
 @app.route('/TheEngineer/requestData',methods=['GET', 'POST'])
