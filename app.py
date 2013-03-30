@@ -34,7 +34,9 @@ biscuit # Static routing, static files and return render_template
 """
 aronLim # Static routing, static files and return render_template
 
-
+@app.route('/UltimateAron')									
+def routeStaticUltimateAron():								
+	return render_template ('UltimateAron.html')			
 
 """
 
@@ -58,7 +60,10 @@ biscuit # Dynamic routing
 """
 aronLim # Dynamic routing
 
-
+@app.route('/UltimateAron/<int:x>')
+def routeDynamicUltimateAron(x):							
+	powerToPower = math.pow(x,x)							
+	return render_template ('DynamicUltimateAron.html',awesomeness = powerToPower)	
 
 """
 
@@ -89,7 +94,14 @@ biscuit # Dynamic routing
 """
 aronLim # Dynamic routing
 
-
+@app.route('/UltimateAron/HTTPmethods',methods=['GET','POST'])
+def httpMethodsUltimateAron():
+	if request.method == 'GET':								#if client(browser) is requesting for GET method, then execute the function.
+		varUltimateAron = 1*2
+		return render_template('HTTPmethodsUltimateAron.html',varUltimateAron = varUltimateAron)
+	if request.method == 'POST':
+		varUltimateAron = 2*3
+		return render_template('HTTPmethodsUltimateAron.html',varUltimateAron = varUltimateAron)
 
 """
 
@@ -116,9 +128,17 @@ biscuit # Request Data
 """
 aronLim # Request Data
 
-
-
 """
+
+@app.route('/UltimateAron/requestData',methods=['GET', 'POST'])
+def requestDataUltimateAron():
+	if request.method == 'POST':
+		username = request.form['username']
+		location = request.form['location']
+		return render_template('requestDataUltimateAron.html', **locals())
+	return render_template('requestDataUltimateAron.html')
+
+
 
 # Session & url_for & flash
 # App secret should be stored in the configuration section

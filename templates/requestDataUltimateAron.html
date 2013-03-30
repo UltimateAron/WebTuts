@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>requestDataUltimateAron</title>
+	<meta name="keywords" content="Aron, Ultimate"/>
+	<meta name="description" content="UltimateAron's login info page"/>
+	<meta name="author" content="AronLim"/>
+</head>
+<body>
+
+{% if name %}
+
+ 	<h1>Hello {{ username }}.</h1>
+	<p>Your location is {{ location }}.</p>
+
+{% else %}
+
+	<form method=POST enctype=multipart/form-data action="{{ url_for('requestDataUltimateAron') }}">
+		Username: <input type="text" name="username" placeholder="username"><br>
+		Location: <input type="text" name="location" placeholder="location">
+		<button type="submit" class="btn">Enter!</button>
+		</fieldset>
+	</form>
+
+{% endif %}
+
+</body>
+</html>
