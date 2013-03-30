@@ -178,7 +178,25 @@ aronLim # Session
 
 
 """
+app.secret_key = 'ultimate/123Aron/345Killed/456Hitman/987Foo/432By/543Eating/435Biscuit'
 
+@app.route('/UltimateAron/storeSession')
+def storeSessionUltimateAron():
+	session['timeEntered'] = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+	flash('Data stored in session & you have been redirected to index page')
+	return redirect(url_for('index'))
+
+@app.route('/UltimateAron/checkSession')
+def checkSessionUltimateAron():
+	checkSession = session['timeEntered']
+	return render_template('checkSessionTheEngineer.html', checkSession=checkSession)
+
+@app.route('/UltimateAron/popSession')
+def popSessionUltimateAron():
+	session.pop('timeEntered', None)
+	flash('Data removed from session & you have been redirected to index page')
+	return redirect(url_for('index'))
+	
 
 
 if __name__ == '__main__':
