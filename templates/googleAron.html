@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Aron's Google</title>
+</head>
+<body>
+	<h1>Aron's Google</h1>
+	<img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/5621_10151323791963727_1652771205_n.jpg" width="300" height="300"/>
+	<p>What is your name?</p>
+		<form method=POST enctype=multipart/form-data action="{{ url_for('AdditionAron') }}">
+			<input type="text" name="name" placeholder="name">
+			<button type="submit" class="btn">Enter!</button>
+			</fieldset>
+		</form>
+		
+{% if name %}
+	<h1>Hi {{ name }}</h1>
+	<p>To go to google, please click the link below! =D</p>
+	<a href=https://www.google.co.uk/>Google</a>
+</body>
+</html>
